@@ -21,3 +21,14 @@ type LogResponse struct {
 	OdataCount   int          `json:"@odata.count"`
 	Value        []LogMessage `json:"value"`
 }
+
+func (r *LogResponse) FilterLogsByTime(startTime time.Time) []LogMessage {
+
+	var filteredLogs []LogMessage
+	for _, log := range r.Value {
+		if log.TimeStamp.After(startTime) {
+			filteredLogs = append(filteredLogs, log)
+		}
+	}
+	return filteredLogs
+}

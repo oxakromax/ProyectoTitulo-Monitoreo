@@ -12,28 +12,17 @@ import (
 	"time"
 )
 
-type UipathToken struct {
-	AccessToken string `json:"access_token"`
-	ExpiresIn   int    `json:"expires_in"`
-	TokenType   string `json:"token_type"`
-	Scope       string `json:"scope"`
-}
-
-type QueryURLAuth struct {
-	GrantType    string `json:"grant_type" url:"grant_type"`
-	ClientId     string `json:"client_id" url:"client_id"`
-	ClientSecret string `json:"client_secret" url:"client_secret"`
-	Scope        string `json:"scope" url:"scope"`
-}
-
 var (
-	QueryAuth = QueryURLAuth{
+	QueryAuth = Structs.QueryURLAuth{
 		ClientId:     "c68d9f9d-abe4-4f84-8178-4267ad6fe447",
 		ClientSecret: "PyRahZliqlAc3)Q(",
 		GrantType:    "client_credentials",
 		Scope:        "OR.Webhooks OR.Monitoring OR.Monitoring OR.ML OR.Tasks OR.Analytics OR.Folders OR.BackgroundTasks OR.TestSets OR.TestSetExecutions OR.TestSetSchedules OR.TestDataQueues OR.Audit OR.License OR.Settings OR.Robots OR.Machines OR.Execution OR.Assets OR.Administration OR.Users OR.Jobs OR.Queues OR.Hypervisor",
 	}
-	UiPathToken       *UipathToken
+	UiPathToken *Structs.UipathToken
+	UipathORG   = Structs.UipathORG{OrganizationName: "studentfinis",
+		TenantName: "DefaultTenant",
+		FolderID:   "3321402"}
 	LastMonitoredTime time.Time
 	IsRefreshingToken bool
 )
@@ -83,7 +72,7 @@ func RequestAPI(method, url string, body io.Reader) (*http.Response, error) {
 	}
 	req.Header.Add("Authorization", "Bearer "+UiPathToken.AccessToken)
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("X-UIPATH-OrganizationUnitId", "3321402")
+	req.Header.Add("X-UIPATH-OrganizationUnitId", UipathORG.FolderID)
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, err
@@ -105,7 +94,7 @@ func main() {
 
 	go func() {
 		time.Sleep(2 * time.Second)
-		resp, err := RequestAPI("GET", "https://cloud.uipath.com/studentfinis/DefaultTenant/orchestrator_/odata/RobotLogs", nil)
+		resp, err := RequestAPI("GET", UipathORG.GetURL()+"odata/RobotLogs", nil)
 		// print the json
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
@@ -116,7 +105,9 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
-		fmt.Println(JsonResponse)
+		byTime := JsonResponse.FilterLogsByTime(LastMonitoredTime)
+		LastMonitoredTime = time.Now()
+		fmt.Println(byTime)
 	}()
 	app := fiber.New()
 	app.Get("/AuthReturn", func(c *fiber.Ctx) error {
