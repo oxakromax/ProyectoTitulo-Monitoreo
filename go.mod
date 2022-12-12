@@ -1,15 +1,15 @@
-module ProyectoTItulo
+module Monitoreo
 
 go 1.19
 
 require (
 	github.com/gofiber/fiber/v2 v2.40.1
 	github.com/google/go-querystring v1.1.0
+	golang.org/x/exp v0.0.0-20221205204356-47842c84f3db
 )
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
-	github.com/google/go-cmp v0.5.8 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect

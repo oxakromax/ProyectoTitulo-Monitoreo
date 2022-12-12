@@ -1,4 +1,4 @@
-package Structs
+package Utils
 
 type ErrorResponse struct {
 	Message   string      `json:"message"`
