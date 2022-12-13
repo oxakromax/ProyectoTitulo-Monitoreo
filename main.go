@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Monitoreo/Utils"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
+	"github.com/oxakromax/ProyectoTitulo-Monitoreo/Utils"
 	"os"
 	"time"
 )

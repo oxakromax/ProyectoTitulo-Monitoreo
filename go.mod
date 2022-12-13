@@ -1,11 +1,11 @@
-module Monitoreo
+module github.com/oxakromax/ProyectoTitulo-Monitoreo
 
 go 1.19
 
 require (
 	github.com/gofiber/fiber/v2 v2.40.1
 	github.com/google/go-querystring v1.1.0
-	golang.org/x/exp v0.0.0-20221205204356-47842c84f3db
+	golang.org/x/exp v0.0.0-20221212164502-fae10dda9338
 )
 
 require (
@@ -18,5 +18,5 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.41.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
-	golang.org/x/sys v0.2.0 // indirect
+	golang.org/x/sys v0.1.0 // indirect
 )
