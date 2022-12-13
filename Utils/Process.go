@@ -34,9 +34,8 @@ type Process struct {
 // La función recibe como argumento un puntero a una estructura de tipo ProcessResponse, en la que se almacenará la información de los procesos obtenida de la petición.
 // La función retorna un error en caso de que ocurra algún problema al realizar la petición o al procesar la respuesta.
 
-func (r *ProcessResponse) Get() error {
-	resp, err := RequestAPI("GET", UipathOrg.GetURL()+"odata/Releases", nil)
-	// print the json
+func (r *ProcessResponse) Get(FolderID int) error {
+	resp, err := RequestAPI("GET", UipathOrg.GetURL()+"odata/Releases", nil, FolderID)
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return err

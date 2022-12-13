@@ -38,9 +38,9 @@ type LogResponse struct {
 // Get es una función que permite obtener una lista de registros de log desde una API.
 // La función hace una petición GET a la URL especificada en la constante UipathOrg.GetURL()
 // y almacena la respuesta en una instancia de la estructura LogResponse.
-func (r *LogResponse) Get() error {
+func (r *LogResponse) Get(FolderID int) error {
 	// Hacemos una petición GET a la URL especificada en UipathOrg.GetURL()
-	resp, err := RequestAPI("GET", UipathOrg.GetURL()+"odata/RobotLogs", nil)
+	resp, err := RequestAPI("GET", UipathOrg.GetURL()+"odata/RobotLogs", nil, FolderID)
 	// Si hubo un error en la petición, lo devolvemos
 	if err != nil {
 		return err

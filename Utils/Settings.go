@@ -11,6 +11,7 @@ var (
 	UipathOrg   = UipathORG{
 		OrganizationName: "studentfinis",
 		TenantName:       "DefaultTenant",
-		FolderID:         "3902201",
 	}
+	FoldersList    = new(Folders)
+	ProcessBDDList = new(ProcessBDDArray)
 )

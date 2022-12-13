@@ -12,6 +12,7 @@ func main() {
 	Utils.QueryAuth.ClientId = os.Getenv("APP-ID")
 	Utils.QueryAuth.ClientSecret = os.Getenv("APP-Secret")
 	Utils.QueryAuth.Scope = os.Getenv("APP-Scope")
+	Utils.UipathOrg.Id = os.Getenv("Orchestrator-ID")
 
 	Utils.LastMonitoredTime = time.Date(2021, 10, 1, 0, 0, 0, 0, time.UTC)
 	_ = Utils.RefreshUiPathToken()
@@ -25,13 +26,13 @@ func main() {
 		}
 	}()
 	ProcessResponse := new(Utils.ProcessResponse)
-	err := ProcessResponse.Get()
+	err := ProcessResponse.Get(3902201)
 	if err != nil {
 		fmt.Println(err)
 	}
 	Processes := ProcessResponse.GetProcesses()
 	LogsResponse := new(Utils.LogResponse)
-	err = LogsResponse.Get()
+	err = LogsResponse.Get(3902201)
 	if err != nil {
 		fmt.Println(err)
 	}

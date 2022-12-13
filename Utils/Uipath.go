@@ -23,7 +23,7 @@ type QueryURLAuth struct {
 type UipathORG struct {
 	OrganizationName string `json:"org"`
 	TenantName       string `json:"tenant"`
-	FolderID         string `json:"folderId"`
+	Id               string `json:"id"`
 }
 
 // GetURL es una función que devuelve la URL base para hacer peticiones a la API de Orchestrator de UiPath.

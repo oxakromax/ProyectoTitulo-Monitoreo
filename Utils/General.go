@@ -3,10 +3,11 @@ package Utils
 import (
 	"io"
 	"net/http"
+	"strconv"
 	"time"
 )
 
-func RequestAPI(method, url string, body io.Reader) (*http.Response, error) {
+func RequestAPI(method, url string, body io.Reader, folderID int) (*http.Response, error) {
 	for IsRefreshingToken.Get() {
 		time.Sleep(1 * time.Second)
 	}
@@ -17,7 +18,7 @@ func RequestAPI(method, url string, body io.Reader) (*http.Response, error) {
 	}
 	req.Header.Add("Authorization", "Bearer "+UiPathToken.AccessToken)
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("X-UIPATH-OrganizationUnitId", UipathOrg.FolderID)
+	req.Header.Add("X-UIPATH-OrganizationUnitId", strconv.Itoa(folderID))
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, err
