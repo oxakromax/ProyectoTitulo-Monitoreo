@@ -42,6 +42,30 @@
           </config>
         </ContributedStateBase>
       </target>
+      <target name="root@86.48.29.103:22" type="ssh/sftp" uuid="5b928f49-7dbc-411e-b9b4-586be3906287">
+        <config>
+          <option name="projectRootOnTarget" value="/root/ProyectoTitulo-Monitoreo" />
+          <option name="serverName" value="root@86.48.29.103:22 password" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="GoLanguageRuntime">
+          <config>
+            <option name="compiledExecutablesVolume">
+              <VolumeState>
+                <option name="remotePath" value="/root/ProyectoTitulo-Monitoreo/compiled" />
+              </VolumeState>
+            </option>
+            <option name="goPath" value="/root/go" />
+            <option name="goRoot" value="/usr/local/go/bin/go" />
+            <option name="goVersion" value="go1.19.2 linux/amd64" />
+            <option name="projectSourcesVolume">
+              <VolumeState>
+                <option name="remotePath" value="/root/ProyectoTitulo-Monitoreo/sources" />
+              </VolumeState>
+            </option>
+          </config>
+        </ContributedStateBase>
+      </target>
     </targets>
   </component>
 </project>

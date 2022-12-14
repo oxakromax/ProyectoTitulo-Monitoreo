@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/gofiber/fiber/v2"
 	"github.com/oxakromax/ProyectoTitulo-Monitoreo/Utils"
 	"os"
 	"time"
@@ -38,11 +37,6 @@ func main() {
 	}
 	Logs := LogsResponse.FilterLogs(Processes)
 	fmt.Println(Logs)
-	app := fiber.New()
-	app.Get("/AuthReturn", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World 👋!")
-	})
-	err = app.Listen(":3000")
 	if err != nil {
 		return
 	}

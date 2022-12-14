@@ -1,5 +1,7 @@
 package Utils
 
+import "github.com/oxakromax/Proyecto_Titulacion-Backend/SQL/Structs"
+
 var (
 	QueryAuth = QueryURLAuth{
 		ClientId:     "",
@@ -12,6 +14,5 @@ var (
 		OrganizationName: "studentfinis",
 		TenantName:       "DefaultTenant",
 	}
-	FoldersList    = new(Folders)
-	ProcessBDDList = new(ProcessBDDArray)
+	ProcessBDDList = new(Structs.ProcessBDDArray)
 )
