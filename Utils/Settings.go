@@ -1,6 +1,9 @@
 package Utils
 
-import "github.com/oxakromax/Proyecto_Titulacion-Backend/SQL/Structs"
+import (
+	"github.com/oxakromax/Proyecto_Titulacion-Backend/SQL/Structs"
+	"os"
+)
 
 var (
 	QueryAuth = QueryURLAuth{
@@ -15,4 +18,5 @@ var (
 		TenantName:       "DefaultTenant",
 	}
 	ProcessBDDList = new(Structs.ProcessBDDArray)
+	APIHost        = os.Getenv("API-Host")
 )

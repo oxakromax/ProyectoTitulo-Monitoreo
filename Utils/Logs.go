@@ -2,6 +2,7 @@ package Utils
 
 import (
 	"encoding/json"
+	"github.com/oxakromax/Proyecto_Titulacion-Backend/SQL/Structs"
 	"golang.org/x/exp/slices"
 	"io"
 	"time"
@@ -66,15 +67,15 @@ func (r *LogResponse) Get(FolderID int) error {
 // con dos condiciones: que la fecha y hora del log sea posterior a la fecha y hora especificada
 // en la variable LastMonitoredTime, y que el nombre del proceso que generó el log esté incluido
 // en la lista de procesos recibida como argumento.
-func (r *LogResponse) FilterLogs(Processes []Process) []Log {
+func (r *LogResponse) FilterLogs(Processes []Structs.ProcesosBDD) []Log {
 	// Inicializamos una lista vacía para almacenar los registros de log filtrados
 	var filteredLogs []Log
 
 	// Iteramos sobre cada registro de log en la lista Value de la estructura LogResponse
 	for _, log := range r.Value {
 		// Comprobamos si el nombre del proceso que generó el log está incluido en la lista de procesos
-		isInProcess := slices.ContainsFunc(Processes, func(p Process) bool {
-			if p.Name == log.ProcessName {
+		isInProcess := slices.ContainsFunc(Processes, func(p Structs.ProcesosBDD) bool {
+			if p.Nombre == log.ProcessName {
 				return true
 			}
 			return false

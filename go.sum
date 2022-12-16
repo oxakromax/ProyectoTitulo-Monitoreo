@@ -4,6 +4,8 @@ github.com/google/go-querystring v1.1.0 h1:AnCroh3fv4ZBgVIf1Iwtovgjaw/GiKJo8M8yD
 github.com/google/go-querystring v1.1.0/go.mod h1:Kcdr2DB4koayq7X8pmAG4sNG59So17icRSOU623lUBU=
 github.com/oxakromax/Proyecto_Titulacion-Backend v0.0.0-20221213041603-ce5ab4ca6ce0 h1:ZYIFpxO0iUx8vn6rW/h9Uu1ml2kTkD2iNKCqK18knMw=
 github.com/oxakromax/Proyecto_Titulacion-Backend v0.0.0-20221213041603-ce5ab4ca6ce0/go.mod h1:+cCSiIPa42IfDtkddVTuvV/hxkEa8QHlYCqL7hPLf2w=
+github.com/oxakromax/Proyecto_Titulacion-Backend v0.0.0-20221214142425-30f08e9d266f h1:Ao2MVbYy3e7ndGQL3WosBfb/lO/XshW6FfGLeVu4wR4=
+github.com/oxakromax/Proyecto_Titulacion-Backend v0.0.0-20221214142425-30f08e9d266f/go.mod h1:+cCSiIPa42IfDtkddVTuvV/hxkEa8QHlYCqL7hPLf2w=
 golang.org/x/exp v0.0.0-20221212164502-fae10dda9338 h1:OvjRkcNHnf6/W5FZXSxODbxwD+X7fspczG7Jn/xQVD4=
 golang.org/x/exp v0.0.0-20221212164502-fae10dda9338/go.mod h1:CxIveKay+FTh1D0yPZemJVgC/95VzuuOLq5Qi4xnoYc=
 golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
